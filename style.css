@@ -17,7 +17,8 @@ body {
 }
 
 .navbar-nav div {
-  padding-right: 0.7rem;
+  /* padding-right: 0.7rem; */
+  padding-right: 0;
 }
 
 .navbar-brand {
@@ -31,6 +32,20 @@ body {
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link:hover {
   color: #ffd700;
+}
+
+.navbar-brand.d-sm-none {
+  /* position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%, 0); */
+  margin-right: 0;
+}
+
+.navbar-toggler {
+  position: fixed;
+  top: 0.5rem;
+  right: 1rem;
 }
 
 /*============ BOOTSTRAP BREAK POINTS:
