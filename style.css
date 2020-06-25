@@ -8,6 +8,13 @@ body {
 
 /*--- Navigation --*/
 
+#mobile-navbar-toggler,
+#mobile-navbar,
+#desktop-navbar {
+  transition: 0.4s;
+  z-index: 99;
+}
+
 .navbar {
   text-transform: uppercase;
   font-weight: 700;
@@ -22,14 +29,7 @@ body {
 
 @media (min-width: 576px) {
   .navbar-nav div {
-    padding-right: 0.7rem;
-  }
-}
-
-@media screen and (min-width: 0px) and (max-width: 575px) {
-  #desktop-navbar-brand {
-    visibility: hidden;
-    position: fixed;
+    padding: 0 0.7rem 0 0.7rem;
   }
 }
 

@@ -18,17 +18,20 @@
     <link rel="stylesheet" type="text/css" href="./css/fixed.css">
 
     <title>Jensen Pon</title>
+
     <script>
-        /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-        var prevScrollpos = window.pageYOffset;
         window.onscroll = function() {
           var currentScrollPos = window.pageYOffset;
-          if (prevScrollpos > currentScrollPos) {
-            document.getElementById("desktop-navbar-brand").style.display = "initial";
+
+          if (currentScrollPos > 80) {
+            document.getElementById("mobile-navbar").style.top = "-56px";
+            document.getElementById("mobile-navbar-toggler").style.top = "-56px";
+            document.getElementById("desktop-navbar").style.top = "-40px";
           } else {
-            document.getElementById("desktop-navbar-brand").style.display = "none";
+            document.getElementById("mobile-navbar").style.top = "0";
+            document.getElementById("mobile-navbar-toggler").style.top = "0.5rem";
+            document.getElementById("desktop-navbar").style.top = "0";
           }
-          prevScrollpos = currentScrollPos;
         }
     </script>
 
@@ -37,13 +40,9 @@
   <body data-spy="scroll" data-target="#navbarResponsive">
 
 <!--- Navigation -->
-    <nav class="navbar navbar-expand-sm justify-content-center navbar-dark bg-dark fixed-top" id="navbar">
-      <div class="navbar-brand d-sm-none mr-0" href="#">JENSEN PON</a></div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="d-none d-sm-block navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="desktop-navbar">
       <div class="collapse navbar-collapse justify-content-sm-center flex-column" id="navbarResponsive">
-        <div class="navbar-brand mr-0" href="#" id="desktop-navbar-brand">JENSEN PON</a></div>
+        <div class="navbar-brand mr-0" href="#">JENSEN PON</a></div>
         <div class="navbar-nav align-items-center">
           <div class="nav-item"><a class="nav-link" href="#portfolio">PORTFOLIO</a></div>
           <div class="nav-item"><a class="nav-link" href="#about">ABOUT</a></div>
@@ -51,6 +50,21 @@
         </div>
       </div>
     </nav>
+
+    <nav class="d-sm-none navbar justify-content-center navbar-dark bg-dark fixed-top" id="mobile-navbar">
+      <div class="navbar-brand mr-0" href="#">JENSEN PON</a></div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" id="mobile-navbar-toggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="navbar-nav align-items-center">
+          <div class="nav-item"><a class="nav-link" href="#portfolio">PORTFOLIO</a></div>
+          <div class="nav-item"><a class="nav-link" href="#about">ABOUT</a></div>
+          <div class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></div>
+        </div>
+      </div>
+    </nav>
+
 <!--- End Navigation -->
 
 
