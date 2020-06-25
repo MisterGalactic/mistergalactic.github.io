@@ -6,6 +6,27 @@ body {
   color: #505962;
 }
 
+.container {
+  max-width: 1640px;
+  margin: 0 auto;
+  padding-right: 120px;
+  padding-left: 120px;
+}
+
+@media (max-width: 991.98px) {
+    .container {
+        padding-right:24px;
+        padding-left: 24px;
+    }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -12px;
+  margin-left: -12px;
+}
+
 /*--- Navigation --*/
 
 #mobile-navbar-toggler,
@@ -51,6 +72,44 @@ body {
   top: 0.5rem;
   right: 1rem;
 }
+
+/*--- Landing Page --*/
+.home-inner {
+  background-image: url(img/landing.gif);
+  filter: blur(3px);
+}
+
+.caption {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 38%;
+  z-index: 1;
+  color: white;
+  text-transform: uppercase;
+}
+
+.caption h1 {
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+  text-shadow: 0.1rem 0.1rem 0.8rem black;
+  padding-bottom: 1rem;
+}
+
+.caption h3 {
+  font-size: 2rem;
+  text-shadow: 0.1rem 0.1rem 0.5rem black;
+  padding-bottom: 1.6rem;
+}
+
+.btn-lg {
+  border-width: medium;
+  border-radius: 0;
+  padding: 0.6rem 1.3rem;
+  font-size: 1.1rem;
+}
+/*--- End Landing Page --*/
 
 /*============ BOOTSTRAP BREAK POINTS:
 
