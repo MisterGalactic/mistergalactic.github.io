@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 html body {
   background-color: rgba(25, 25, 25, 1);
 }
@@ -28,8 +32,8 @@ body {
 .offset::before {
   display: block;
   content: "";
-  height: 4rem;
-  margin-top: -4rem;
+  height: 3rem;
+  margin-top: -3rem;
 }
 
 h3.heading {
