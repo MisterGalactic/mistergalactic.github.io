@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+html body {
+  background-color: rgba(25, 25, 25, 1);
+}
+
 body {
   overflow-x: hidden;
   font-family: 'Lato', sans-serif;
-  color: #505962;
+  /* color: #505962; */
+  color: white;
 }
 
 .container {
@@ -13,18 +18,32 @@ body {
   padding-left: 120px;
 }
 
-@media (max-width: 991.98px) {
-    .container {
-        padding-right:24px;
-        padding-left: 24px;
-    }
-}
-
 .row {
   display: flex;
   flex-wrap: wrap;
   margin-right: -12px;
   margin-left: -12px;
+}
+
+.offset::before {
+  display: block;
+  content: "";
+  height: 4rem;
+  margin-top: -4rem;
+}
+
+h3.heading {
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.9rem;
+}
+
+.heading-underline {
+  width: 3rem;
+  height: 0.2rem;
+  background-color: #ffd700;
+  margin: 0 auto 2rem;
 }
 
 /*--- Navigation --*/
@@ -48,11 +67,7 @@ body {
   padding-right: 0;
 }
 
-@media (min-width: 576px) {
-  .navbar-nav div {
-    padding: 0 0.7rem 0 0.7rem;
-  }
-}
+
 
 .navbar-brand {
   font-size: 1.25rem;
@@ -109,7 +124,239 @@ body {
   padding: 0.6rem 1.3rem;
   font-size: 1.1rem;
 }
+
 /*--- End Landing Page --*/
+
+/*--- About Page --*/
+
+.jumbotron {
+  margin-bottom: 0;
+  padding: 2rem 0 3.5rem;
+  border-radius: 0;
+  background-color: #000;
+}
+
+.jumbotron h3.heading {
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.9rem;
+}
+
+.jumbotron .heading-underline {
+  width: 3rem;
+  height: 0.2rem;
+  background-color: #ffd700;
+  margin: 0 auto 0;
+}
+
+blockquote .svg-inline--fa {
+  color: #ffd700;
+  margin: 0 1rem 1rem 0;
+}
+
+blockquote.bio {
+  padding: 0 3rem 0;
+  margin: 0;
+}
+
+/*--- End About Page --*/
+
+
+/*--- Contact Page --*/
+
+.map-container-6 {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.map-container-6 iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.contact-clean {
+    /* background: #000; */
+    padding: 40px 0;
+}
+
+
+
+.contact-clean form {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f5f5f4;
+    padding: 40px;
+    border-radius: 4px;
+    color: #505e6c;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+}
+
+@media (max-width:767px) {
+    .contact-clean form {
+        padding: 30px
+    }
+}
+
+.contact-clean h2 {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 36px;
+    color: inherit
+}
+
+.contact-clean .form-group:last-child {
+    margin-bottom: 5px
+}
+
+.contact-clean form .form-control {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+    outline: none;
+    color: inherit;
+    padding-left: 12px;
+    height: 42px
+}
+
+.contact-clean form .form-control:focus {
+    border: 1px solid #b2b2b2
+}
+
+.contact-clean form textarea.form-control {
+    min-height: 100px;
+    max-height: 260px;
+    padding-top: 10px;
+    resize: vertical;
+    resize: none
+}
+
+.contact-clean form .btn {
+    padding: 16px 32px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.contact-clean form .btn:hover {
+    opacity: 1
+}
+
+.contact-clean form .btn:active {
+    transform: translateY(1px)
+}
+
+.contact-clean form .btn-primary {
+    background-color: #000000;
+    margin-top: 15px;
+    color: #fff
+}
+
+/*--- End Contact Page --*/
+
+
+/*--- Footer Page --*/
+
+footer {
+  background-color: #000;
+  color: white;
+  padding: 2rem 0 2rem;
+  margin-top: 1rem;
+}
+
+footer a {
+  color: white;
+}
+
+footer .navbar-brand {
+  font-size: 2rem;
+}
+
+footer svg.svg-inline--fa {
+  font-size: 1.6rem;
+  margin: 1.2rem 0.5rem 0 0;
+}
+
+footer svg.svg-inline--fa:hover {
+  color: #ffd700 !important;
+}
+
+hr.socket {
+  width: 100%;
+  border-top: 0.2rem solid #666b71;
+  margin-top: 3rem;
+}
+/*--- End Footer Page --*/
+
+
+/*--- Media Queries --*/
+
+@media (max-width: 991.98px) {
+  .container {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+@media (min-width: 576px) {
+  .navbar-nav div {
+    padding: 0 0.7rem 0 0.7rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-clean {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .caption h1 {
+    font-size: 2.3rem;
+    letter-spacing: 0.15rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .caption h3 {
+    font-size: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*--- End Media Queries --*/
 
 /*============ BOOTSTRAP BREAK POINTS:
 

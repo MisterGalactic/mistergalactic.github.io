@@ -13,6 +13,7 @@
 
     <!-- Iconify -->
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
 
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" type="text/css" href="./css/fixed.css">
@@ -86,7 +87,7 @@
 
 
 <!--- Start DEMO REEL Section -->
-<div id="demoreel">
+<div id="demoreel" class="offset">
   <div class="col-12">
     <div class="embed-responsive embed-responsive-21by9">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/ntcl-hPjsKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -106,32 +107,77 @@
 
 <!--- Start ABOUT Section -->
 <div id="about" class="offset">
+<div class="jumbotron">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-3 col-md-3">
-        <div class="profileImage">
-          <img class="img-fluid w-100 rounded" src='./img/face.png'/>
+    <h3 class="heading text-center">ABOUT ME</h1>
+    <div class="heading-underline"></div>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-5 col-lg-3 profile" style="max-width: 200px">
+            <img class="img-fluid rounded" src='./img/face.png'/>
+          </div>
+          <div class="col-12 col-lg-9">
+            <blockquote class="bio">
+              <i class="fas fa-quote-left"></i>
+              Senior-year art student, future VFX compositor. My passion for Visual Effects brought me to the Savannah College of Art and Design (SCAD), where I am working on my BFA in Visual Effects. At present, I am a proficient user in Maya, Nuke, Houdini. I will continue on focusing to build skills in VFX compositing.
+            </blockquote>
+          </div>
         </div>
-      </div>
-      <div class="col-9 col-md-9">
-        <h1 class="text-center">JENSEN PON</h1>
-        <p class="bio">Senior-year art student, future VFX compositor. My passion for Visual Effects brought me to the Savannah College of Art and Design (SCAD), where I am working on my BFA in Visual Effects. At present, I am a proficient user in Maya, Nuke, Houdini. I will continue on focusing to build skills in VFX compositing.</p>
       </div>
     </div>
   </div>
+</div>
 </div>
 <!--- End ABOUT Section -->
 
 
 <!--- Start CONTACT Section -->
 <div id="contact" class="offset">
-
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="order-2 order-xl-1 col-xl-7">
+        <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 478px">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d236161.09848557058!2d113.98761619751527!3d22.352980760241152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403e2eda332980f%3A0xf08ab3badbeac97c!2sHong%20Kong!5e0!3m2!1sen!2shk!4v1593162785167!5m2!1sen!2shk"
+            frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="order-1 order-xl-2 col-xl-5">
+        <div class="contact-clean">
+            <form onsubmit="return false;">
+                <h3 class="heading text-center">Get In Touch</h2>
+                <div class="heading-underline"></div>
+                <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                <div class="form-group"><textarea class="form-control" name="message" placeholder="Message" rows="14"></textarea></div>
+                <div class="form-group"><button class="btn btn-primary" type="submit">send </button></div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!--- End CONTACT Section -->
 
 
-  <footer>
-  </footer>
+<footer>
+  <div class="row justify-content-center">
+    <div class="col-md-5 text-center">
+      <div class="navbar-brand mr-0" href="#">JENSEN PON</a></div>
+      <p>Visual Effects Student</p>
+      <strong>Contact Info</strong>
+      <p>(852) 9362-8951<br>jensen.pon@hotmail.com<p>
+      <a href="https://www.facebook.com/profile.php?id=1600664574" target="_blank"><i class="fab fa-facebook-square"></i></a>
+      <a href="https://www.youtube.com/channel/UCtv0xJ69cwakQBWVsHktxQw" target="_blank"><i class="fab fa-youtube-square"></i></a>
+      <a href="https://github.com/MisterGalactic" target="_blank"><i class="fab fa-github-square"></i></a>
+    </div>
+
+    <hr class="socket">
+    &copy; Jensen Pon.
+
+  </div>
+
+</footer>
 
 
     <!-- Optional JavaScript -->
