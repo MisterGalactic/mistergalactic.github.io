@@ -80,7 +80,8 @@
 <div class="caption text-center">
   <h1>Jensen Pon</h1>
   <h3>Visual Effects Student</h3>
-  <a class="btn btn-outline-light btn-lg" href="#demoreel">DEMO REEL</a>
+  <a class="d-none d-sm-inline-block btn btn-outline-light btn-lg" href="#demoreel-desktop">DEMO REEL</a>
+  <a class="d-inline-block d-sm-none btn btn-outline-light btn-lg" href="#demoreel-mobile">DEMO REEL</a>
 </div>
 
 <!--- End Landing Page Section -->
@@ -88,21 +89,23 @@
 
 <!--- Start DEMO REEL Section -->
 
-<!-- <div id="demoreel" class="offset">
-  <div>
-    <div class="embed-responsive embed-responsive-21by9">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/ntcl-hPjsKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-</div> -->
-
-<div id="demoreel" class="offset">
+<div id="demoreel-desktop" class="d-none d-sm-block offset">
   <div class="vid-section">
     <div class="responsive-vid">
       <div id="player"></div>
     </div>
   </div>
 </div>
+
+<div id="demoreel-mobile" class="d-block d-sm-none offset">
+  <div>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ntcl-hPjsKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+
 
 <!--- End DEMO REEL Section -->
 
