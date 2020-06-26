@@ -87,13 +87,23 @@
 
 
 <!--- Start DEMO REEL Section -->
-<div id="demoreel" class="offset">
-  <div class="col-12">
+
+<!-- <div id="demoreel" class="offset">
+  <div>
     <div class="embed-responsive embed-responsive-21by9">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/ntcl-hPjsKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
+</div> -->
+
+<div id="demoreel" class="offset">
+  <div class="vid-section">
+    <div class="responsive-vid">
+      <div id="player"></div>
+    </div>
+  </div>
 </div>
+
 <!--- End DEMO REEL Section -->
 
 
@@ -192,5 +202,59 @@
         var scroll = new SmoothScroll('a[href*="#"]');
       });
     </script>
+
+    <script>
+      // Play when in viewport
+      $(window).on('scroll load', function(){
+        $('.responsive-vid iframe').each( function(i){
+          player.pauseVideo();
+          var scroll_position = $(window).scrollTop();
+          var bottom_of_video = $(this).offset().top + ($(this).outerHeight() / 2);
+          var bottom_of_window3 = $(window).scrollTop() + $(window).height();
+          if( bottom_of_window3 > bottom_of_video && scroll_position < bottom_of_video ) {
+            player.playVideo();
+            $('#player').css({'opacity':'1'});
+          } else {
+            player.pauseVideo();
+            $('#player').css({'opacity':'.6'});
+          }
+        });
+      });
+    </script>
+
+    <script>
+    	// 2. This code loads the IFrame Player API code asynchronously.
+    	var tag = document.createElement('script');
+
+    	tag.src = "https://www.youtube.com/iframe_api";
+    	var firstScriptTag = document.getElementsByTagName('script')[0];
+    	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    	// 3. This function creates an <iframe> (and YouTube player)
+    	//    after the API code downloads.
+    	var player;
+    	function onYouTubeIframeAPIReady() {
+    		player = new YT.Player('player', {
+              videoId: "ntcl-hPjsKw", // YouTube Video ID
+              width: 1920, // Player width (in px)
+              playerVars: {
+                autoplay: 0, // Auto-play the video on load
+                controls: 0, // Show pause/play buttons in player
+                showinfo: 0, // Hide the video title
+                modestbranding: 1, // Hide the Youtube Logo
+                loop: 1, // Run the video in a loop
+                fs: 0, // Hide the full screen button
+                cc_load_policy: 0, // Hide closed captions
+                iv_load_policy: 3, // Hide the Video Annotations
+                autohide: 1, // Hide video controls when playing
+                start: 0,
+                end: 107,
+                mute: 0, // Sound Off On
+                rel: 0
+    			}
+    		});
+    	}
+    </script>
+
   </body>
 </html>

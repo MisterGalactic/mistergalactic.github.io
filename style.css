@@ -67,8 +67,6 @@ h3.heading {
   padding-right: 0;
 }
 
-
-
 .navbar-brand {
   font-size: 1.25rem;
 }
@@ -127,6 +125,34 @@ h3.heading {
 
 /*--- End Landing Page --*/
 
+/*--- DemoReel Page --*/
+
+.vid-section {
+  background: rgba(25, 25, 25, 1);
+  padding: 0px;
+}
+
+.responsive-vid {
+  padding-top: 56.25%;
+  position: relative;
+  width: 100%;
+}
+
+.responsive-vid iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#player {
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+/*--- End DemoReel Page --*/
+
 /*--- About Page --*/
 
 .jumbotron {
@@ -183,7 +209,6 @@ blockquote.bio {
 }
 
 .contact-clean {
-    /* background: #000; */
     padding: 40px 0;
 }
 
@@ -363,6 +388,7 @@ hr.socket {
     margin-top: 0;
   }
 }
+
 
 /*--- End Media Queries --*/
 
