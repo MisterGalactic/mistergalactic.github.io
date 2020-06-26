@@ -59,9 +59,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <div class="navbar-nav align-items-center">
-          <div class="nav-item"><a class="nav-link" href="#portfolio">PORTFOLIO</a></div>
-          <div class="nav-item"><a class="nav-link" href="#about">ABOUT</a></div>
-          <div class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></div>
+          <div class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link" href="#portfolio">PORTFOLIO</a></div>
+          <div class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link" href="#about">ABOUT</a></div>
+          <div class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link" href="#contact">CONTACT</a></div>
         </div>
       </div>
     </nav>
@@ -144,13 +144,13 @@
       </div>
       <div class="order-1 order-xl-2 col-xl-5">
         <div class="contact-clean">
-            <form onsubmit="return false;">
+            <form action="https://formspree.io/mjvaegbw" method="POST">
                 <h3 class="heading text-center">Get In Touch</h2>
                 <div class="heading-underline"></div>
                 <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
                 <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                 <div class="form-group"><textarea class="form-control" name="message" placeholder="Message" rows="14"></textarea></div>
-                <div class="form-group"><button class="btn btn-primary" type="submit">send </button></div>
+                <div class="form-group"><button class="btn btn-primary" type="submit" value="Send">send </button></div>
             </form>
         </div>
       </div>
