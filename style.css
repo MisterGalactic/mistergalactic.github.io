@@ -155,11 +155,6 @@ h3.heading {
 
 /*--- Porfolio Page --*/
 
-#portfolio .container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .subheader h4 {
   display: inline-block;
   width: auto;
@@ -173,12 +168,6 @@ h4.projectTitle {
   text-transform: uppercase;
 }
 
-.subheroImage {
-  width: 100%;
-  padding: 0;
-  position: relative;
-}
-
 .content {
   position: absolute;
   left: 0;
@@ -187,6 +176,50 @@ h4.projectTitle {
   color: #f1f1f1;
   width: 100%;
   padding: 20px;
+}
+
+.thumbnail {
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+.thumbnail:hover .content {
+  visibility: hidden;
+}
+
+#live-preview {
+  display: none;
+}
+
+#static-preview:hover {
+  display: none;
+}
+
+#static-preview:hover + #live-preview {
+  display: block;
+}
+
+.modal-dialog {
+  /* max-width: 800px; */
+  max-width: 1600px;
+  margin: 30px auto;
+}
+
+.modal-body {
+  position: relative;
+  padding: 0px;
+}
+
+.close {
+  position: absolute;
+  right: -30px;
+  top: 0;
+  z-index: 999;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #fff;
+  opacity: 1;
 }
 
 /*--- End Porfolio Page --*/
