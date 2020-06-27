@@ -403,7 +403,7 @@ hr.socket {
 
 /*--- Media Queries --*/
 
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
   .container {
     padding-right: 24px;
     padding-left: 24px;
