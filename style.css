@@ -202,8 +202,10 @@ h4.projectTitle {
 }
 
 .modal-dialog {
-  max-width: 1600px;
-  margin: 30px auto;
+  max-width: 1400px;
+  margin: 60px auto;
+  padding-right: 60px;
+  padding-left: 60px;
 }
 
 .modal-body {
@@ -220,6 +222,10 @@ h4.projectTitle {
   font-weight: normal;
   color: #fff;
   opacity: 1;
+}
+
+.close:hover {
+  color: #ffd700 !important;
 }
 
 /*--- End Porfolio Page --*/
@@ -460,6 +466,14 @@ hr.socket {
   }
 }
 
+@media (max-width: 1199.98px) {
+  .modal-dialog {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+}
 
 /*--- End Media Queries --*/
 
