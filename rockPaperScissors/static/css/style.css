@@ -37,6 +37,6 @@
 
 .flex-box-rps div img{
     width: 25%;
-    height: 25%;
+    height: auto;
     margin: auto;
 }
