@@ -34,3 +34,9 @@
 .flex-box-rps div{
     margin: auto;
 }
+
+.flex-box-rps div img{
+    width: 25%;
+    height: 25%;
+    margin: auto;
+}
