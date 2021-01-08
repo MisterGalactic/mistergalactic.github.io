@@ -125,7 +125,7 @@ function blackjackHit() {
 
         showResult(YOU);
 
-        console.log(blackjackGame['turnsOver']);   
+        // console.log(blackjackGame['turnsOver']);   
         
         showDealButton();
     }
