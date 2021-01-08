@@ -181,6 +181,8 @@ function blackjackDeal() {
         blackjackGame['isStand'] = false;
         blackjackGame['turnsOver'] = false;
         blackjackGame['placeBet'] = false;
+        blackjackGame['has11Ace'] = false;
+
         lostAll();
 
         document.querySelector('#blackjack-bet-button').style.display = 'inline-block';
