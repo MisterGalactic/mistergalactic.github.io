@@ -213,7 +213,7 @@ function updateScore(card, activePlayer) {
     }
 
     if (activePlayer['score'] > 21 && blackjackGame['has11Ace'] === true) {
-        console.log('removing 10 ace');
+        console.log('removing 10 from 11Ace');
         activePlayer['score']  = activePlayer['score'] - 10;
         blackjackGame['has11Ace'] = false;
     }
