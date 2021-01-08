@@ -2,7 +2,21 @@ var blackjackGame = {
     'you': {'scoreSpan': '#your-blackjack-result', 'div': '#your-box', 'score': 0},
     'dealer': {'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'score': 0},
     'cards': ['2C','2D','2H','2S','3C','3D','3H','3S','4C','4D','4H','4S','5C','5D','5H','5S','6C','6D','6H','6S','7C','7D','7H','7S','8C','8D','8H','8S','9C','9D','9H','9S','10C','10D','10H','10S','KC','KD','KH','KS','JC','JD','JH','JS','QC','QD','QH','QS','AC','AD','AH','AS'],
-    'cardsMap': {'2C':2,'2D':2,'2H':2,'2S':2,'3C':3,'3D':3,'3H':3,'3S':3,'4C':4,'4D':4,'4H':4,'4S':4,'5C':5,'5D':5,'5H':5,'5S':5,'6C':6,'6D':6,'6H':6,'6S':6,'7C':7,'7D':7,'7H':7,'7S':7,'8C':8,'8D':8,'8H':8,'8S':8,'9C':9,'9D':9,'9H':9,'9S':9,'10C':10,'10D':10,'10H':10,'10S':10,'KC':10,'KD':10,'KH':10,'KS':10,'JC':10,'JD':10,'JH':10,'JS':10,'QC':10,'QD':10,'QH':10,'QS':10,'AC':[1,11],'AD':[1,11],'AH':[1,11],'AS':[1,11]},
+    'cardsMap': {
+        '2C':2,'2D':2,'2H':2,'2S':2,
+        '3C':3,'3D':3,'3H':3,'3S':3,
+        '4C':4,'4D':4,'4H':4,'4S':4,
+        '5C':5,'5D':5,'5H':5,'5S':5,
+        '6C':6,'6D':6,'6H':6,'6S':6,
+        '7C':7,'7D':7,'7H':7,'7S':7,
+        '8C':8,'8D':8,'8H':8,'8S':8,
+        '9C':9,'9D':9,'9H':9,'9S':9,
+        '10C':10,'10D':10,'10H':10,'10S':10,
+        'KC':10,'KD':10,'KH':10,'KS':10,
+        'JC':10,'JD':10,'JH':10,'JS':10,
+        'QC':10,'QD':10,'QH':10,'QS':10,
+        'AC':[1,11],'AD':[1,11],'AH':[1,11],'AS':[1,11]
+    },
     'wins': 0,
     'losses': 0,
     'draws': 0,
@@ -11,6 +25,7 @@ var blackjackGame = {
     'isStand': false,
     'turnsOver': false,
     'placeBet': false,
+    'has11Ace': false
 };
 
 var YOU = blackjackGame['you']
@@ -30,14 +45,14 @@ document.querySelector('#blackjack-deal-button').addEventListener('click', black
 
 function updateBalance() {
     if (blackjackGame['cash'] > 0 && blackjackGame['bet'] == 0 && blackjackGame['isStand'] === false) {
-        var amount = prompt("How much money would you like to bet?");
+        var amount = prompt("How much money would you like to bet?", 10);
 
         if (parseInt(amount) <= blackjackGame['cash'] && parseInt(amount) > 0 ) {
 
             blackjackGame['bet'] = parseInt(amount);
             blackjackGame['cash'] = blackjackGame['cash'] - blackjackGame['bet'];
             document.querySelector('#balance').textContent = blackjackGame['cash'];
-            console.log(amount);
+            console.log('User bets ' + amount);
 
         } else if (parseInt(amount) > blackjackGame['cash']) {
 
@@ -64,6 +79,12 @@ function blackjackBet() {
     document.querySelector('#balance').textContent = parseInt(blackjackGame['cash']);
     updateBalance();
     blackjackGame['placeBet'] = true;
+
+    if (blackjackGame['bet'] > 0) {
+        document.querySelector('#blackjack-bet-button').style.display = 'none';
+        document.querySelector('#blackjack-hit-button').style.display = 'inline-block';
+        document.querySelector('#blackjack-stand-button').style.display = 'inline-block';
+    }
 }
 
 
@@ -74,7 +95,7 @@ function blackjackHit() {
         showCard(card, YOU);
         updateScore(card, YOU);
         showScore(YOU);
-        console.log(YOU['score'])
+        // console.log(YOU['score'])
     }
 
     if (YOU['score'] > 21) {
@@ -86,21 +107,27 @@ function blackjackHit() {
 
         showResult(DEALER);
 
-        console.log(blackjackGame['turnsOver']);            
+        // console.log(blackjackGame['turnsOver']);
+        
+        showDealButton();
     }
 
     if (YOU['score'] === 21) {
         blackjackGame['turnsOver'] = true;
 
-
         blackjackGame['wins']++;
+
         blackjackGame['cash'] = blackjackGame['cash'] + blackjackGame['bet']*2;
+
+        document.querySelector('#balance').textContent = blackjackGame['cash'];
 
         blackjackGame['bet'] = 0;
 
         showResult(YOU);
 
-        console.log(blackjackGame['turnsOver']);            
+        console.log(blackjackGame['turnsOver']);   
+        
+        showDealButton();
     }
 }
 
@@ -156,6 +183,9 @@ function blackjackDeal() {
         blackjackGame['placeBet'] = false;
         lostAll();
 
+        document.querySelector('#blackjack-bet-button').style.display = 'inline-block';
+        document.querySelector('#blackjack-deal-button').style.display = 'none';
+
     }
 
 }
@@ -163,14 +193,29 @@ function blackjackDeal() {
 function updateScore(card, activePlayer) {
     if (card === 'AC' || card === 'AD' || card === 'AH' || card === 'AS') {
     // IF ADDING 11 KEEPS ME BELOW 21, ADD 11; OTHERWISE ADD 1
-        if (activePlayer['score'] + blackjackGame['cardsMap'][card][1] <=21) {
-            activePlayer['score'] = activePlayer['score'] + blackjackGame['cardsMap'][card][1];
-        } else {
-            activePlayer['score'] = activePlayer['score'] + blackjackGame['cardsMap'][card][0];
-        }
 
+        if ((activePlayer['score'] + blackjackGame['cardsMap'][card][1]) <= 21) {
+
+            activePlayer['score'] = activePlayer['score'] + blackjackGame['cardsMap'][card][1];
+            blackjackGame['has11Ace'] = true;
+            console.log(card + ' is 11.');
+
+        } else {
+
+            activePlayer['score'] = activePlayer['score'] + blackjackGame['cardsMap'][card][0];
+            console.log(card + ' is 1.');
+
+        }     
+        
     } else {
+
         activePlayer['score'] = activePlayer['score'] + blackjackGame['cardsMap'][card];
+    }
+
+    if (activePlayer['score'] > 21 && blackjackGame['has11Ace'] === true) {
+        console.log('removing 10 ace');
+        activePlayer['score']  = activePlayer['score'] - 10;
+        blackjackGame['has11Ace'] = false;
     }
 }
 
@@ -208,12 +253,19 @@ async function dealerLogic() {
         blackjackGame['turnsOver'] = true;
         let winner = computeWinner();
         showResult(winner);
-        console.log('turnsOver: ' + blackjackGame['turnsOver']);            
+        // console.log('turnsOver: ' + blackjackGame['turnsOver']);            
     }
 }
 
 //compute winner and return who just won
 //update wins, draws, and losses
+
+function showDealButton() {
+    document.querySelector('#blackjack-hit-button').style.display = 'none';
+    document.querySelector('#blackjack-stand-button').style.display = 'none';
+    document.querySelector('#blackjack-deal-button').style.display = 'inline-block';
+}
+
 
 function computeWinner() {
     let winner;
@@ -225,18 +277,25 @@ function computeWinner() {
             blackjackGame['cash'] = blackjackGame['cash'] + blackjackGame['bet']*2;
             winner = YOU;
 
-            console.log("higher score than dealer or when dealer busts but you're 21 or under");
+            // console.log("higher score than dealer or when dealer busts but you're 21 or under");
+
+            showDealButton();
 
         } else if (YOU['score'] < DEALER['score']) {
             blackjackGame['losses']++;
             winner = DEALER;
 
-            console.log("user score less than dealer");
+            // console.log("user score less than dealer");
+
+            showDealButton();
 
         } else if (YOU['score'] === DEALER['score']) {
             blackjackGame['draws']++;
             blackjackGame['cash'] = blackjackGame['cash'] + blackjackGame['bet'];
-            console.log("user score same as dealer");
+            
+            // console.log("user score same as dealer");
+
+            showDealButton();
 
         }
 
@@ -247,10 +306,15 @@ function computeWinner() {
         winner = DEALER;
 
         console.log("user busts but dealer doesn't");
+
+        showDealButton();
         
     // condition: when you AND the dealer busts
     } else if (YOU['score'] > 21 && DEALER['score'] > 21) {
         blackjackGame['draws']++;
+
+        showDealButton();
+        
     }
 
     console.log(blackjackGame);
