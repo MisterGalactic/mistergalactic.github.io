@@ -91,7 +91,7 @@ function blackjackBet() {
 function blackjackHit() {
     if (blackjackGame['isStand'] === false && blackjackGame['placeBet'] === true && blackjackGame['bet'] > 0) {
         let card = randomCard();
-        console.log(card);
+        console.log(card + ' : ' + blackjackGame['cardsMap'][card]);
         showCard(card, YOU);
         updateScore(card, YOU);
         showScore(YOU);
